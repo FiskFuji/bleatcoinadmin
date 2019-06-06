@@ -35,7 +35,7 @@ public class UsersApplicationTests {
     @MockBean
     IUserRepository userRepository;
 
-    private User u1 = new User("11111", createMap("111", 2), new Credentials("u1", "abc"));
+    private User u1 = new User("11111", new Credentials("u1", "abc"));
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
@@ -58,7 +58,6 @@ public class UsersApplicationTests {
         Assert.assertEquals(new Response(true, "Invalid User ID"), controller.getUserById("0"));
     }
 
-
     @Test
     public void getUserByIdWhenUserInDb() {
         when(userRepository.findById("11111")).thenReturn(Optional.of(u1));
@@ -76,5 +75,4 @@ public class UsersApplicationTests {
         when(userRepository.findByCredentials(new Credentials("u1", "abc"))).thenReturn(u1);
         Assert.assertEquals(u1, controller.getUserByCredentials("u1", "abc"));
     }
-
 }

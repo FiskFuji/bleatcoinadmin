@@ -10,12 +10,12 @@ import java.util.Objects;
 public class User {
     @Id
     private String id;
-    private HashMap<String, Integer> cart;
     private Credentials credentials;
+	private String coins;
 
-    public User(String id, HashMap<String, Integer> cart, Credentials credentials) {
+    public User(String id, String coins, Credentials credentials) {
         this.id = id;
-        this.cart = cart;
+		this.coins = coins;
         this.credentials = credentials;
     }
 
@@ -27,27 +27,14 @@ public class User {
         this.id = id;
     }
 
-    public HashMap<String, Integer> getCart() {
-        return cart;
-    }
-
-    public void setCart(HashMap<String, Integer> cart) {
-        this.cart = cart;
-    }
-
-
-    public void addToCart(String itemId, int quantity) {
-        cart.put(itemId, quantity);
-    }
-
-    public void removeFromCart(String itemId){
-        cart.remove(itemId);
-    }
-
-    public void clearCart(){
-        cart.clear();
-    }
-
+	public String getCoins() {
+		return coins;
+	}
+	
+	public void setCoins(String coins) {
+		this.coins = coins;
+	}
+		
     public Credentials getCredentials() {
         return credentials;
     }
@@ -62,20 +49,20 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
         return Objects.equals(getId(), user.getId()) &&
-                Objects.equals(getCart(), user.getCart()) &&
+				Objects.equals(getCoins(), user.getCoins()) &&
                 Objects.equals(getCredentials(), user.getCredentials());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getCart(), getCredentials());
+        return Objects.hash(getId(), getCoins(), getCredentials());
     }
 
     @Override
     public String toString() {
-        return "User{" +
+        return "User {" +
                 "id='" + id + '\'' +
-                ", cart=" + cart +
+				", coins='" + coins + '\'' +
                 ", credentials=" + credentials +
                 '}';
     }
