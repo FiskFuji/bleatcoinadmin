@@ -23,11 +23,6 @@ import static org.mockito.Mockito.when;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UsersApplicationTests {
-    private static HashMap<String, Integer> createMap(String key, Integer val) {
-        HashMap<String, Integer> myMap = new HashMap<>();
-        myMap.put(key, val);
-        return myMap;
-    }
 
     @Autowired
     Controller controller;
@@ -35,7 +30,7 @@ public class UsersApplicationTests {
     @MockBean
     IUserRepository userRepository;
 
-    private User u1 = new User("11111", new Credentials("u1", "abc"));
+    private User u1 = new User("11111", "0", new Credentials("u1", "abc"));
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
