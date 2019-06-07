@@ -15,8 +15,7 @@ public class Controller {
     @Autowired
     IUserRepository userRepository;
 
-    @GetMapping("/allUsers")
-    @ResponseBody
+    @GetMapping("/allUsers", produces="application/json")
     public Object getAll() {
         List<User> userList = userRepository.findAll();
         if(userList == null)
@@ -24,7 +23,7 @@ public class Controller {
         return userList;
     }
 
-    @GetMapping("/getUserById/{id}")
+    @GetMapping("/getUserById/{id}", produces="application/json")
     public Object getUserById(@PathVariable String id) {
         Optional user = userRepository.findById(id);
         if(!user.isPresent())
@@ -32,7 +31,7 @@ public class Controller {
         return user.get();
     }
 
-    @PostMapping("/getUserByCredentials/{username}/{password}")
+    @PostMapping("/getUserByCredentials/{username}/{password}", produces="application/json")
     public Object getUserByCredentials(@PathVariable String username, @PathVariable String password) {
         Credentials credentials = new Credentials(username, password);
         User temp = userRepository.findByCredentials(credentials);
