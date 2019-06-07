@@ -11,9 +11,9 @@ public class User {
     @Id
     private String id;
     private Credentials credentials;
-	private String coins;
+	private int coins;
 
-    public User(String id, String coins, Credentials credentials) {
+    public User(String id, int coins, Credentials credentials) {
         this.id = id;
 		this.coins = coins;
         this.credentials = credentials;
@@ -27,11 +27,11 @@ public class User {
         this.id = id;
     }
 
-	public String getCoins() {
+	public int getCoins() {
 		return coins;
 	}
 	
-	public void setCoins(String coins) {
+	public void setCoins(int coins) {
 		this.coins = coins;
 	}
 		
@@ -62,7 +62,7 @@ public class User {
     public String toString() {
         return "User {" +
                 "id='" + id + '\'' +
-				", coins='" + coins + '\'' +
+				", coins='" + Integer.toString(coins) + '\'' +
                 ", credentials=" + credentials +
                 '}';
     }

@@ -30,7 +30,7 @@ public class UsersApplicationTests {
     @MockBean
     IUserRepository userRepository;
 
-    private User u1 = new User("11111", "0", new Credentials("u1", "abc"));
+    private User u1 = new User("11111", 0, new Credentials("u1", "abc"));
 
     @Rule
     public ExpectedException expectedException = ExpectedException.none();
