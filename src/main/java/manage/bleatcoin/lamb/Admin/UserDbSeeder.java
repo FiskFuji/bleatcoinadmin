@@ -18,11 +18,6 @@ public class UserDbSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        User dfltadmin = new User("1", 0, new Credentials("bladmin", "coins,coins"));
-        User dfltlamb = new User("2", 0, new Credentials("lamb", "somepassword"));
-        // -- Seeding Complete --
-		// userRepository.deleteAll();
-        // List<User> users = Arrays.asList(dfltadmin, dfltlamb);
-        // userRepository.saveAll(users);
+        // --- Database seeding complete. Do nothing. ---
     }
 }
