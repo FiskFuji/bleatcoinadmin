@@ -11,6 +11,6 @@ public class UserDbSeeder implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        // --- Seeding complete. Do nothing. ---
+        // --- Database seeding complete. Do nothing. ---
     }
 }
