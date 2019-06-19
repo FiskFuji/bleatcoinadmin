@@ -35,30 +35,6 @@ public class UsersApplicationTests {
     public ExpectedException expectedException = ExpectedException.none();
 
     @Test
-    public void getAllUsersInDb(){
-        when(userRepository.findAll()).thenReturn(new ArrayList<>(Arrays.asList(u1)));
-        Assert.assertEquals(new ArrayList<>(Arrays.asList(u1)), controller.getAll());
-    }
-
-    @Test
-    public void getAllUsersInEmptyDb(){
-        when(userRepository.findAll()).thenReturn(null);
-        Assert.assertEquals(new Response(true, "No Users Found"),controller.getAll());
-    }
-
-    @Test
-    public void getUserByIdWhenNullUserInDb() {
-        when(userRepository.findById("0")).thenReturn(Optional.empty());
-        Assert.assertEquals(new Response(true, "Invalid User ID"), controller.getUserById("0"));
-    }
-
-    @Test
-    public void getUserByIdWhenUserInDb() {
-        when(userRepository.findById("11111")).thenReturn(Optional.of(u1));
-        Assert.assertEquals(u1, controller.getUserById("11111"));
-    }
-
-    @Test
     public void getUserWhenCredentialInvalid() {
         when(userRepository.findByCredentials(new Credentials("u2", "abc"))).thenReturn(null);
         Assert.assertEquals(new Response(true, "Invalid Credentials"), controller.getUserByCredentials("u2", "abc"));
