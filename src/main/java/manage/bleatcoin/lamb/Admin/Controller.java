@@ -25,7 +25,7 @@ public class Controller {
 
     @GetMapping("/getUserById/{id}")
     public Object getUserById(@PathVariable String id) {
-        Optional user = userRepository.findById(id);
+        Optional<User> user = userRepository.findById(id);
         if(!user.isPresent())
             return new Response(true, "Invalid User ID");
         return user.get();
