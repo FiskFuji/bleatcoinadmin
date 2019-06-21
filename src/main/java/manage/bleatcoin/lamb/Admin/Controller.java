@@ -13,6 +13,7 @@ public class Controller {
     @Autowired
     IUserRepository userRepository;
 
+    @CrossOrigin
     @PostMapping("/getUserByCredentials/{username}/{password}")
     public Object getUserByCredentials(@PathVariable String username, @PathVariable String password) {
         Credentials credentials = new Credentials(username, password);
